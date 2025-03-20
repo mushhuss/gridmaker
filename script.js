@@ -7,23 +7,13 @@ let colorSelected = "";
 // Add a row
 function addR() {
 
-    let numRows = numRows + 1;
     let grid = document.getElementById("grid");
     numRows = grid.rows.length;
-    // if we already have rows, the number of columns will be the number of columns already there
-    // otherwise our grid is just empty so make it 1x1
-    if(numRows > 0)
-    {
-        numCols = grid.rows[0].cells.length;
-    }
-    else
-    {
-        numCols = 0;
-    }
+    numCols = grid.rows[0].cells.length;
 
     let newRow = grid.insertRow();
     
-    // if we only have one column we can just insert a cell in the new row
+    // if grid is empty just insert a cell
     // otherwise we will need to insert numCols cells in our new row
     if(numCols === 0)
     {
@@ -36,8 +26,6 @@ function addR() {
             newRow.insertCell();
         }
     }
-    console.log(numRows, numCols)
-
 }
 
 // Add a column
