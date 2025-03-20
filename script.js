@@ -32,7 +32,7 @@ function addR() {
         for(let i = 0; i < numCols; i++)
         {
             newRow.insertCell();
-            newROw.onclick = function() {
+            newRow.onclick = function() {
                 this.style.backgroundColor = colorSelected;
             }
         }
