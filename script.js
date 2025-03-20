@@ -6,6 +6,10 @@ let colorSelected = "";
 
 // Add a row
 function addR() {
+
+    let numRows = grid ? grid.rows.length : 0;
+    let numCols = numRows > 0 ? grid.rows[0].cells.length : 0;
+    
     
     // Ensure the new row has the same number of columns as existing rows
     let new_row = grid.insertRow(); 
@@ -17,8 +21,6 @@ function addR() {
 
             this.style.backgroundColor = colorSelected;
         }
-
-        numCols++;
 
     }
     else{
@@ -38,6 +40,7 @@ function addR() {
 // Add a column
 function addC() {
 
+    let numRows = grid ? grid.rows.length : 0;    
 
     //loop through the rows and add a coloumn at the end
     for(let i = 0; i < numRows; i++){ 
@@ -50,20 +53,20 @@ function addC() {
 
     //if theres no row make one
     if(numRows === 0){
+        
         let new_row = grid.insertRow();
         let new_cell = new_row.insertCell();
         new_cell.onclick = function () {
             this.style.backgroundColor = colorSelected;
         };
-        numRows++;
     }
-
-    numCols++;
-
 }
 
 // Remove a row
 function removeR() {
+
+    let numRows = grid ? grid.rows.length : 0;    
+
     // if there are rows to remove, remove the last one
     if(numRows > 0)
     {
@@ -74,6 +77,9 @@ function removeR() {
 // Remove a column
 function removeC() {
 
+    let numRows = grid ? grid.rows.length : 0;
+    
+
     //if theres no rows theres nothing to delete
     if(numRows === 0){
         return;
@@ -82,9 +88,9 @@ function removeC() {
     //loop through the rows and delete a coloumn
     for(let i = 0; i < numRows; i++){ 
 
-      grid.rows[i].deleteCell(numRows - i - 1);
+      grid.rows[i].deleteCell(-1);
 
-    }  
+    }
 
 }
 
@@ -96,10 +102,16 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
+
+    let numRows = grid ? grid.rows.length : 0;
+    let numCols = numRows > 0 ? grid.rows[0].cells.length : 0;
+    
    
     //loops through grid and if cell is empty fills it with whatever color is selected
     for (let i = 0; i < numRows; i++){
         for (let j = 0; j < numCols; j++){
+            let cell = grid.rows[i].cells[j]; // Get the cell
+
             if (!cell.style.backgroundColor || cell.style.backgroundColor === "transparent" || cell.style.backgroundColor === "") {
                 cell.style.backgroundColor = colorSelected;
             }
@@ -109,6 +121,10 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
+
+    let numRows = grid ? grid.rows.length : 0;
+    let numCols = numRows > 0 ? grid.rows[0].cells.length : 0;
+    
     
     //loops through and fills all cells with whatever color is selected
     for (let i = 0; i < numRows; i++){
@@ -121,10 +137,14 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
+
+    let numRows = grid ? grid.rows.length : 0;
+    let numCols = numRows > 0 ? grid.rows[0].cells.length : 0;
+    
     
     //loops through the grid and sets the color to ""
     for (let i = 0; i < numRows; i++){
-        for (let j = 0; j < numCols + 1; j++){
+        for (let j = 0; j < numCols; j++){
             grid.rows[i].cells[j].style.backgroundColor = "";
         }
     }
