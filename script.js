@@ -7,25 +7,9 @@ let colorSelected = "";
 // Add a row
 function addR() {
 
-    let grid = document.getElementById("grid");
-    numRows = grid.rows.length;
-    numCols = grid.rows[0].cells.length;
+    let numRows = numRows + 1;
+    alert("Clicked Add Row"); // Replace this line with your code.
 
-    let newRow = grid.insertRow();
-    
-    // if grid is empty just insert a cell
-    // otherwise we will need to insert numCols cells in our new row
-    if(numCols === 0)
-    {
-        newRow.insertCell();
-    }
-    else
-    {
-        for(let i = 0; i < numCols; i++)
-        {
-            newRow.insertCell();
-        }
-    }
 }
 
 // Add a column
@@ -80,7 +64,7 @@ function fillU(){
     for (let i = 0; i < numRows; i++){
         for (let j = 0; j < numCols + 1; j++){
         
-            grid.rows[i].cells[j].style.backgroundColor === "" ? grid.rows[i].cells[j].style.backgroundColor = colorSelected:null;
+            grid.rows[i].cells[j].style.backgroundColor = "" ;
 
         }
     }
