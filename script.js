@@ -5,7 +5,35 @@ let colorSelected;
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    let grid = document.getElementById("grid");
+    numRows = grid.rows.length;
+    // if we already have rows, the number of columns will be the number of columns already there
+    // otherwise our grid is just empty so make it 1x1
+    if(numRows > 0)
+    {
+        numCols = grid.rows[0].cells.length;
+    }
+    else
+    {
+        numCols = 0;
+    }
+
+    let newRow = grid.insertRow();
+    
+    // if we only have one column we can just insert a cell in the new row
+    // otherwise we will need to insert numCols cells in our new row
+    if(numCols === 0)
+    {
+        newRow.insertCell();
+    }
+    else
+    {
+        for(let i = 0; i < numCols; i++)
+        {
+            newRow.insertCell();
+        }
+    }
+    console.log(numRows, numCols)
 }
 
 // Add a column
