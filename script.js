@@ -16,10 +16,10 @@ function addC() {
     let grid = document.getElementById("grid");
     let numRows = grid.rows.length;
     if (numRows > 0){
-        numCols = grid.rows[0].cells.length;
+        let numCols = grid.rows[0].cells.length;
     }
     else{
-        numRows = 0;
+        let numCols = 0;
     } 
 
     for(let i = 0; i < numRows; i++){ 
@@ -45,7 +45,25 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+
+    let grid = document.getElementById("grid");
+    let numRows = grid.rows.length;
+    if (numRows > 0){
+        numCols = grid.rows[0].cells.length;
+    }
+    else{
+        numRows = 0;
+    } 
+    if(numRows === 0){
+        return;
+    }
+
+    for(let i = 0; i < numRows; i++){ 
+
+      grid.rows[i].deleteCell(numRows - i);
+
+    }  
+
 }
 
 // Set global variable for selected color
