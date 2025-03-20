@@ -13,6 +13,7 @@ function addR() {
 
     let newRow = grid.insertRow();
     
+    
     // if grid is empty just insert a cell
     // otherwise we will need to insert numCols cells in our new row
     if(numCols === 0)
