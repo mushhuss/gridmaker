@@ -9,14 +9,7 @@ function addR() {
 
     let grid = document.getElementById("grid");
     numRows = grid.rows.length;
-    if(numRows > 0)
-    {
-        numCols = grid.rows[0].cells.length;
-    }
-    else
-    {
-        numCols = 0;
-    }
+    numCols = numRows > 0 ? grid.rows[0].cells.length : 0
     let newRow = grid.insertRow();
     // if grid is empty just insert a cell
     // otherwise we will need to insert numCols cells in our new row
@@ -61,7 +54,11 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    // if there are rows to remove, remove the last one
+    if(numRows > 0)
+    {
+        grid.deleteRow(-1);
+    }
 }
 
 // Remove a column
