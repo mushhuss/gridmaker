@@ -22,8 +22,8 @@ function addR() {
     // otherwise we will need to insert numCols cells in our new row
     if(numCols === 0)
     {
-        newRow.insertCell();
-        newRow.onclick = function() {
+        let newCell = newRow.insertCell();
+        newCell.onclick = function() {
             this.style.backgroundColor = colorSelected;
         }
     }
@@ -31,8 +31,8 @@ function addR() {
     {
         for(let i = 0; i < numCols; i++)
         {
-            newRow.insertCell();
-            newRow.onclick = function() {
+            let newCell = newRow.insertCell();
+            newCell.onclick = function() {
                 this.style.backgroundColor = colorSelected;
             }
         }
