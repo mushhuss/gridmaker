@@ -2,7 +2,7 @@
 let grid = document.getElementById("grid")
 let numRows = grid ? grid.rows.length : 0;
 let numCols = numRows > 0 ? grid.rows[0].length : 0;    
-let colorSelected = "White"; 
+let colorSelected = ""; 
 
 // Add a row
 function addR() {
@@ -61,32 +61,29 @@ function selectColor(){
 // Fill all uncolored cells
 function fillU(){
     alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    for (let i = 0; i < numRows; i++){
+        for (let j = 0; j < numCols + 1; j++){
+        
+            grid.rows[i].cells[j].style.backgroundColor === "" ? grid.rows[i].cells[j].style.backgroundColor = colorSelected:null;
+
+        }
+    }
 }
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    
+    for (let i = 0; i < numRows; i++){
+        for (let j = 0; j < numCols + 1; j++){
+            grid.rows[i].cells[j].style.backgroundColor = colorSelected;
+        }
+    }
+
 }
 
 // Clear all cells
 function clearAll(){
     alert("Clicked Clear All"); // Replace this line with your code.
-
-    grid = getElementById("grid");
-
-    if (numRows > 0){
-        numCols = grid.rows[0].cells.length;
-    }
-    else{
-        numRows = 0;
-    } 
-    if(numRows === 0){
-        return;
-    }
-
-
-
-
 
 
 }
