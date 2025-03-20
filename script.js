@@ -1,7 +1,8 @@
-// Declare global variables
-let numRows = 0;
-let numCols = 0;
-let colorSelected; 
+//global variables
+let grid = document.getElementById("grid")
+let numRows = grid ? grid.rows.length : 0;
+let numCols = numRows > 0 ? grid.rows[0].length : 0;    
+let colorSelected = "White"; 
 
 // Add a row
 function addR() {
@@ -13,20 +14,12 @@ function addR() {
 
 // Add a column
 function addC() {
-    let grid = document.getElementById("grid");
-    let numRows = grid.rows.length;
-    if (numRows > 0){
-        let numCols = grid.rows[0].cells.length;
-    }
-    else{
-        let numCols = 0;
-    } 
-
     for(let i = 0; i < numRows; i++){ 
         let new_col = grid.rows[i].insertCell();
         new_col.onClick = function() {
             this.style.backgroundColor = colorSelected
         }
+        numCols++;
     }  
 
     if(numRows === 0){
@@ -35,6 +28,7 @@ function addC() {
         new_col.onclick = function(){
             this.style.backgroundColor = colorSelected;
         }
+        numRows++;
     }
 }
 
@@ -46,21 +40,14 @@ function removeR() {
 // Remove a column
 function removeC() {
 
-    let grid = document.getElementById("grid");
-    let numRows = grid.rows.length;
-    if (numRows > 0){
-        numCols = grid.rows[0].cells.length;
-    }
-    else{
-        numRows = 0;
-    } 
     if(numRows === 0){
+        alert("u have no rows")
         return;
     }
 
     for(let i = 0; i < numRows; i++){ 
 
-      grid.rows[i].deleteCell(numRows - i);
+      grid.rows[i].deleteCell(numRows - i - 1);
 
     }  
 
@@ -85,4 +72,22 @@ function fillAll(){
 // Clear all cells
 function clearAll(){
     alert("Clicked Clear All"); // Replace this line with your code.
+
+    grid = getElementById("grid");
+
+    if (numRows > 0){
+        numCols = grid.rows[0].cells.length;
+    }
+    else{
+        numRows = 0;
+    } 
+    if(numRows === 0){
+        return;
+    }
+
+
+
+
+
+
 }
