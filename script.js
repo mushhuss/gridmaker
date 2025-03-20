@@ -16,7 +16,7 @@ function addR() {
 function addC() {
     for(let i = 0; i < numRows; i++){ 
         let new_col = grid.rows[i].insertCell();
-        new_col.onClick = function() {
+        new_col.onclick = function() {
             this.style.backgroundColor = colorSelected
         }
         numCols++;
@@ -41,7 +41,6 @@ function removeR() {
 function removeC() {
 
     if(numRows === 0){
-        alert("u have no rows")
         return;
     }
 
@@ -55,7 +54,7 @@ function removeC() {
 
 // Set global variable for selected color
 function selectColor(){
-    colorSelected = document.getElementById("selectedColorId").value;
+    colorSelected = document.getElementById("color").value;
     console.log(colorSelected);
 }
 
