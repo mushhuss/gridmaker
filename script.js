@@ -9,22 +9,32 @@ function addR() {
 
     let grid = document.getElementById("grid");
     numRows = grid.rows.length;
-    numCols = grid.rows[0].cells.length;
-
+    if(numRows > 0)
+    {
+        numCols = grid.rows[0].cells.length;
+    }
+    else
+    {
+        numCols = 0;
+    }
     let newRow = grid.insertRow();
-    
-    
     // if grid is empty just insert a cell
     // otherwise we will need to insert numCols cells in our new row
     if(numCols === 0)
     {
-        newRow.insertCell();
+        let newCell = newRow.insertCell();
+        newCell.onclick = function() {
+            this.style.backgroundColor = colorSelected;
+        }
     }
     else
     {
         for(let i = 0; i < numCols; i++)
         {
-            newRow.insertCell();
+            let newCell = newRow.insertCell();
+            newCell.onclick = function() {
+                this.style.backgroundColor = colorSelected;
+            }
         }
     }
 }
