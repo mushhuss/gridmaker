@@ -8,6 +8,10 @@ td{
     background-color: white;
 }
 
+p {
+    text-align: center;
+}
+
 .grid{
     margin-top: 3rem;
     display: flex;
@@ -16,15 +20,35 @@ td{
 }
 
 .header{
-
-    background-color: aqua;
-
+    text-align: center;
 }
 
 .title{
-
-
     font-family: Arial, Helvetica, sans-serif;
-    font-size: large;
+    font-size: 25px;
+    color: #4c89af;
+}
 
+body {
+    background-color: #d1e4f1;
+}
+
+button {
+    margin: 0 10px; /* space b/w the buttons */
+    padding: 10px 20px; /* add area around the buttons */
+    font-size: 16px;
+    cursor: pointer; /* changes the cursor when you are hovering */
+    border: none;
+    background-color: #4c89af;
+    color: white;
+    border-radius: 5px; /* round the buttons */
+}
+
+select {
+    padding: 8px; /* add area around the select */
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer; /* changes the cursor when you are hovering */
+    border: none;
+    border-radius: 5px; /* round the select */
 }
